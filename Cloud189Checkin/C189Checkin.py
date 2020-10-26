@@ -62,23 +62,23 @@ def main():
         description = response.json()['description']
         print(f"抽奖获得{description}")
     #第二次抽奖
-##  
-#response = s.get(url2,headers=headers)
- #   if ("errorCode" in response.text):
-  #      if(response.json()['errorCode'] == "User_Not_Chance"):
-   #         print("抽奖次数不足")
-    #    else:
-     #       print(response.text)
-      #      if(SCKEY != ""):
-       #         data = {
-        #            "text" : "第二次抽奖出错",
-         #           "desp" : response.text
-          #          }
-           #     sc = requests.post(scurl, data=data)
-    #else:
-     #   description = response.json()['description']
-      #  print(f"抽奖获得{description}")
-##
+ 
+response = s.get(url2,headers=headers)
+    if ("errorCode" in response.text):
+        if(response.json()['errorCode'] == "User_Not_Chance"):
+            print("抽奖次数不足")
+        else:
+            print(response.text)
+            if(SCKEY != ""):
+                data = {
+                    "text" : "第二次抽奖出错",
+                    "desp" : response.text
+                    }
+                sc = requests.post(scurl, data=data)
+    else:
+        description = response.json()['description']
+        print(f"抽奖获得{description}")
+
 BI_RM = list("0123456789abcdefghijklmnopqrstuvwxyz")
 def int2char(a):
     return BI_RM[a]
